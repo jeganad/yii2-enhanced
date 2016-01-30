@@ -1,7 +1,7 @@
 <?php
 namespace common\components\db;
 
-class ReleazActiveRecord extends \yii\db\ActiveRecord
+class ActiveRecord extends \yii\db\ActiveRecord
 {
 	const DELETE_ATTRIBUTE = 'deleted_at';
 
@@ -46,11 +46,12 @@ class ReleazActiveRecord extends \yii\db\ActiveRecord
 	public function attributeLabels()
 	{
 		return array_merge(parent::attributeLabels(), [
-			'id'         => \Yii::t('common', 'ID'),
-			'created_by' => \Yii::t('common', 'Created By'),
-			'updated_by' => \Yii::t('common', 'Updated By'),
-			'created_at' => \Yii::t('common', 'Created At'),
-			'updated_at' => \Yii::t('common', 'Updated At'),
+			'id'                   => \Yii::t('common', 'ID'),
+			'created_by'           => \Yii::t('common', 'Created By'),
+			'updated_by'           => \Yii::t('common', 'Updated By'),
+			'created_at'           => \Yii::t('common', 'Created At'),
+			'updated_at'           => \Yii::t('common', 'Updated At'),
+			self::DELETE_ATTRIBUTE => \Yii::t('common', 'Deleted At'),
 		]);
 	}
 
