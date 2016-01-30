@@ -42,6 +42,15 @@ class User extends \yii\web\User
 	}
 
 	/**
+	 * @return null|\yii\rbac\Assignment
+	 */
+	public function isMember()
+	{
+		return !is_null(Yii::$app->authManager->getAssignment('member', $this->id));
+	}
+
+
+	/**
 	 * @return int|string
 	 */
 	public function getId()

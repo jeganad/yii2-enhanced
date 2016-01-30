@@ -46,6 +46,7 @@ class m140506_102106_rbac_init extends \yii\db\Migration
 			'data'       => Schema::TYPE_TEXT,
 			'created_at' => Schema::TYPE_INTEGER,
 			'updated_at' => Schema::TYPE_INTEGER,
+			'deleted_at' => Schema::TYPE_INTEGER,
 			'PRIMARY KEY (name)',
 		], $tableOptions);
 
@@ -57,6 +58,7 @@ class m140506_102106_rbac_init extends \yii\db\Migration
 			'data'        => Schema::TYPE_TEXT,
 			'created_at'  => Schema::TYPE_INTEGER,
 			'updated_at'  => Schema::TYPE_INTEGER,
+			'deleted_at'  => Schema::TYPE_INTEGER,
 			'PRIMARY KEY (name)',
 			'FOREIGN KEY (rule_name) REFERENCES ' . $authManager->ruleTable . ' (name) ON DELETE SET NULL ON UPDATE CASCADE',
 		], $tableOptions);
@@ -72,11 +74,12 @@ class m140506_102106_rbac_init extends \yii\db\Migration
 
 		$this->createTable($authManager->assignmentTable, [
 			'item_name'  => Schema::TYPE_STRING . '(64) NOT NULL',
-			'user_id'    => Schema::TYPE_STRING . '(64) NOT NULL',
+			'user_id'    => Schema::TYPE_INTEGER . '(11) NOT NULL',
 			'created_at' => Schema::TYPE_INTEGER,
 			'PRIMARY KEY (item_name, user_id)',
 			'FOREIGN KEY (item_name) REFERENCES ' . $authManager->itemTable . ' (name) ON DELETE CASCADE ON UPDATE CASCADE',
 		], $tableOptions);
+		$this->addForeignKey('auth_assignment_user', $authManager->assignmentTable, 'user_id', 'user', 'id', 'CASCADE', 'CASCADE');
 	}
 
 	public function down()

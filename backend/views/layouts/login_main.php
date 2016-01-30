@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use backend\assets\AppAsset;
+use common\widgets\Alert;
 use yii\helpers\Html;
 
 AppAsset::register($this);
@@ -22,7 +23,10 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+	<?= $this->render('_menu'); ?>
+
 	<div class="container">
+		<?= Alert::widget() ?>
 		<?= $content ?>
 	</div>
 </div>

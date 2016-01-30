@@ -5,7 +5,6 @@ use backend\modules\user\Module;
 use backend\modules\user\models\User;
 use Yii;
 use \yii\base\Model;
-use yii\validators\EmailValidator;
 
 /**
  * RegistrationForm
@@ -14,9 +13,11 @@ class RegistrationForm extends Model
 {
 	/** @var String */
 	public $email;
-	/** @var */
+	/** @var String */
+	public $username;
+	/** @var String */
 	public $password;
-	/** @var */
+	/** @var String */
 	public $repeat_password;
 
 	/**
@@ -25,10 +26,9 @@ class RegistrationForm extends Model
 	public function rules()
 	{
 		return [
-			[['email', 'password', 'repeat_password'], 'required'],
+			[['email', 'username', 'password', 'repeat_password'], 'required'],
 			[['email'], 'email'],
-			[['email'], 'unique'],
-			['password', 'string', 'min' => 6],
+			[['username', 'password'], 'string', 'min' => 6],
 			['repeat_password', 'compare', 'compareAttribute' => 'password', 'operator' => '==='],
 		];
 	}
@@ -54,10 +54,10 @@ class RegistrationForm extends Model
 	{
 		// Create user
 		$user = new User([
-			'username' => $this->email,
+			'username' => $this->username,
 			'email'    => $this->email,
 			'status'   => User::STATUS_DELETED,
-			'roles'    => ['admin']
+			'roles'    => ['member']
 		]);
 
 		$user->setPassword($this->password);
@@ -78,6 +78,7 @@ class RegistrationForm extends Model
 	{
 		return [
 			'email'           => Module::t('registration', 'Email'),
+			'username'        => Module::t('registration', 'Username'),
 			'password'        => Module::t('registration', 'Password'),
 			'repeat_password' => Module::t('registration', 'Repeat Password'),
 		];

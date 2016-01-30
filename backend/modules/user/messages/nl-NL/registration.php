@@ -9,6 +9,7 @@ return [
 
 	/** RegistrationForm attributes */
 	'Email'                                                                    => 'E-mail',
+	'Username'                                                                 => 'Gebruikersnaam',
 	'Password'                                                                 => 'Wachtwoord',
 	'Repeat Password'                                                          => 'Herhaal wachtwoord',
 

@@ -5,16 +5,14 @@ namespace backend\modules\user\controllers;
 use backend\modules\user\models\forms\RegistrationForm;
 use backend\modules\user\Module;
 use common\models\User;
-use Yii;
 use yii\filters\AccessControl;
 use backend\components\web\Controller;
+use Yii;
 
 class RegistrationController extends Controller
 {
 	/** @var string */
 	public $defaultAction = 'register';
-	/** @var string */
-	public $layout = '@backend/views/layouts/login_main';
 
 	/**
 	 * @inheritdoc
@@ -27,7 +25,7 @@ class RegistrationController extends Controller
 				'rules' => [
 					[
 						'actions' => ['register', 'activate'],
-						'allow'   => false,
+						'allow'   => true,
 					],
 				],
 			],
@@ -35,7 +33,7 @@ class RegistrationController extends Controller
 	}
 
 	/**
-	 * Login action
+	 * Register action
 	 * @return string|\yii\web\Response
 	 */
 	public function actionRegister()
@@ -47,11 +45,8 @@ class RegistrationController extends Controller
 		$model = new RegistrationForm();
 		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 			Yii::$app->session->setFlash('success', Module::t('registration', 'Check your email for further instructions.'));
-
-			// Send email and save the model
-			$model->register();
-
-			return $this->goBack();
+			$model->register(); // Send email and save the model
+			return $this->redirect(['/user/login']);
 		}
 
 		return $this->render('registration', [

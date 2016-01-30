@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?php $form = ActiveForm::begin(['id' => 'registration-form']); ?>
 
 	<h2><?= Module::t('registration', 'You can register here') ?></h2>
+	<?= $form->field($model, 'username', ['inputOptions' => ['placeholder' => Module::t('registration', 'Username')]])->label(false) ?>
 	<?= $form->field($model, 'email', ['inputOptions' => ['placeholder' => Module::t('registration', 'Email')]])->label(false) ?>
 	<div class="row">
 		<div class="col-md-6">
