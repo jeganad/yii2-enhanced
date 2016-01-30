@@ -3,10 +3,6 @@ namespace frontend\controllers;
 
 use frontend\components\web\Controller;
 use frontend\models\forms\ContactForm;
-use Yii;
-use common\models\LoginForm;
-use yii\base\InvalidParamException;
-use yii\web\BadRequestHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
@@ -75,11 +71,11 @@ class SiteController extends Controller
 	public function actionContact()
 	{
 		$model = new ContactForm();
-		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-			if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-				Yii::$app->session->setFlash('success', Yii::t('contact', 'Thank you for contacting us. We will respond to you as soon as possible.'));
+		if ($model->load(\Yii::$app->request->post()) && $model->validate()) {
+			if ($model->sendEmail(\Yii::$app->params['adminEmail'])) {
+				\Yii::$app->session->setFlash('success', \Yii::t('contact', 'Thank you for contacting us. We will respond to you as soon as possible.'));
 			} else {
-				Yii::$app->session->setFlash('error', Yii::t('contact', 'There was an error sending email.'));
+				\Yii::$app->session->setFlash('error', \Yii::t('contact', 'There was an error sending email.'));
 			}
 
 			return $this->refresh();

@@ -24,9 +24,9 @@ class m160130_185550_initial_data extends Migration
 			'id'                   => 1,
 			'username'             => 'admin',
 			'auth_key'             => 'fFOg234-MHlMW4eLSnaYpPF-b_qN0DGB',
-			'password_hash'        => '$2y$13$JZ.bBASpjgBECdOy0PLaiuKJMTRbF2Gzwd/x5RGN6u/j0T.oPr7Iy',
+			'password_hash'        => '$2y$13$JZ.bBASpjgBECdOy0PLaiuKJMTRbF2Gzwd/x5RGN6u/j0T.oPr7Iy', // asdasd
 			'password_reset_token' => null,
-			'email'                => 'edofre@gmail.com',
+			'email'                => 'admin@example.com',
 			'status'               => 10,
 			'last_login'           => time(),
 			'created_at'           => time(),

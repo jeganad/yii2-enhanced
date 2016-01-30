@@ -3,10 +3,8 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use backend\assets\AppAsset;
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
-use common\widgets\Alert;
 
 AppAsset::register($this);
 ?>
@@ -24,24 +22,12 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-	<?= $this->render('_menu'); ?>
-
 	<div class="container">
-		<?= Breadcrumbs::widget([
-			'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-		]) ?>
-		<?= Alert::widget() ?>
 		<?= $content ?>
 	</div>
 </div>
 
-<footer class="footer">
-	<div class="container">
-		<p class="pull-left">&copy; yii2-enhanced <?= date('Y') ?></p>
-
-		<p class="pull-right"><?= Yii::powered() ?></p>
-	</div>
-</footer>
+<?= $this->render('_footer'); ?>
 
 <?php $this->endBody() ?>
 </body>
