@@ -12,6 +12,8 @@ $nameAttribute = $generator->getNameAttribute();
 echo "<?php\n";
 ?>
 
+use common\models\User;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use <?= $generator->indexWidgetType === 'grid' ? "common\\components\\grid\\GridView" : "yii\\widgets\\ListView" ?>;
 

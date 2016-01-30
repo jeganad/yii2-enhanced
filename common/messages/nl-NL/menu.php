@@ -4,6 +4,7 @@ return [
 	/** Navigation */
 	'Home'                => 'Home',
 	'User'                => 'Gebruiker',
+	'Page'                => 'Pagina',
 	'Roles'               => 'Rollen',
 	'About'               => 'Over',
 	'Contact'             => 'Contact',
