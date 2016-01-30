@@ -7,8 +7,13 @@
 
 namespace common\components\jui;
 
+/**
+ * Class DatePicker
+ * @package common\components\jui
+ */
 class DatePicker extends \yii\jui\DatePicker
 {
+	/** @var array */
 	public $options = [
 		'class' => 'form-control'
 	];

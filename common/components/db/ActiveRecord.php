@@ -1,6 +1,10 @@
 <?php
 namespace common\components\db;
 
+/**
+ * Class ActiveRecord
+ * @package common\components\db
+ */
 class ActiveRecord extends \yii\db\ActiveRecord
 {
 	const DELETE_ATTRIBUTE = 'deleted_at';

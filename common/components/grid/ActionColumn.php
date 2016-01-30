@@ -4,10 +4,18 @@ namespace common\components\grid;
 use yii\helpers\Html;
 use Yii;
 
+/**
+ * Class ActionColumn
+ * @package common\components\grid
+ */
 class ActionColumn extends \yii\grid\ActionColumn
 {
+	/** @var string Default template for the buttons */
 	public $template = '{view} {update} {delete}';
 
+	/**
+	 *
+	 */
 	public function init()
 	{
 		parent::init();

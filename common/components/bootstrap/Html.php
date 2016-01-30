@@ -2,6 +2,12 @@
 
 namespace common\components\bootstrap;
 
+use yii\validators\StringValidator;
+
+/**
+ * Class Html
+ * @package common\components\bootstrap
+ */
 class Html extends \yii\bootstrap\Html
 {
 	/**

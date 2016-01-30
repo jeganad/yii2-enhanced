@@ -1,9 +1,9 @@
 <?php
 namespace common\components\behavior;
 
+use common\components\db\ActiveRecord;
 use yii\base\Event;
 use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveRecord;
 
 /**
  * SoftDelete
@@ -27,7 +27,7 @@ class SoftDeleteBehavior extends TimestampBehavior
 	/**
 	 * @var string SoftDelete attribute
 	 */
-	public $attribute = "deleted_at";
+	public $attribute = ActiveRecord::DELETE_ATTRIBUTE;
 
 	/**
 	 * @var bool If true, this behavior will process '$model->delete()' as a soft-delete. Thus, the

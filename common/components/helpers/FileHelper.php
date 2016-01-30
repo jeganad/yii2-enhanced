@@ -2,7 +2,6 @@
 namespace common\components\helpers;
 
 use Yii;
-use yii\base\Exception;
 use yii\web\HttpException;
 
 /**
@@ -13,6 +12,11 @@ use yii\web\HttpException;
  */
 class FileHelper extends \yii\helpers\FileHelper
 {
+	/**
+	 * @param $file_name
+	 * @param bool $suppress_errors
+	 * @throws HttpException
+	 */
 	public static function removeFile($file_name, $suppress_errors = true)
 	{
 		// Check if string contains @backend

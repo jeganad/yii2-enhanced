@@ -7,6 +7,10 @@
 
 namespace common\components\behavior;
 
+/**
+ * Class CreatedUpdatedBehavior
+ * @package common\components\behavior
+ */
 class CreatedUpdatedBehavior extends \yii\behaviors\AttributeBehavior
 {
 	/**
@@ -20,7 +24,7 @@ class CreatedUpdatedBehavior extends \yii\behaviors\AttributeBehavior
 	 */
 	public $updatedByAttribute = 'updated_by';
 	/**
-	 * @var callable|Expression The expression that will be used for generating the timestamp.
+	 * @var callable|\yii\db\Expression The expression that will be used for generating the timestamp.
 	 * This can be either an anonymous function that returns the timestamp value,
 	 * or an [[Expression]] object representing a DB expression (e.g. `new Expression('NOW()')`).
 	 * If not set, it will use the value of `time()` to set the attributes.
@@ -35,8 +39,7 @@ class CreatedUpdatedBehavior extends \yii\behaviors\AttributeBehavior
 	{
 		parent::init();
 
-		if (empty($this->attributes))
-		{
+		if (empty($this->attributes)) {
 			$this->attributes = [
 				\yii\db\BaseActiveRecord::EVENT_BEFORE_INSERT => [$this->createdByAttribute, $this->updatedByAttribute],
 				\yii\db\BaseActiveRecord::EVENT_BEFORE_UPDATE => $this->updatedByAttribute,
@@ -46,16 +49,13 @@ class CreatedUpdatedBehavior extends \yii\behaviors\AttributeBehavior
 
 	/**
 	 * @param $event
-	 * @return mixed|Expression
+	 * @return mixed|\yii\db\Expression
 	 */
 	protected function getValue($event)
 	{
-		if ($this->value instanceof \yii\db\Expression)
-		{
+		if ($this->value instanceof \yii\db\Expression) {
 			return $this->value;
-		}
-		else
-		{
+		} else {
 			return $this->value !== null ? call_user_func($this->value, $event) : \Yii::$app->user->id;
 		}
 	}

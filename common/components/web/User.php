@@ -9,6 +9,10 @@ namespace common\components\web;
 
 use Yii;
 
+/**
+ * Class User
+ * @package common\components\web
+ */
 class User extends \yii\web\User
 {
 	/**
@@ -43,7 +47,7 @@ class User extends \yii\web\User
 	public function getId()
 	{
 		if (php_sapi_name() == "cli") {
-			// In cli-mode so the user is the Admin
+			// In cli-mode so the user is always the Admin
 			return 1;
 		}
 		return parent::getId();

@@ -3,6 +3,10 @@ namespace common\components\validators;
 
 use Yii;
 
+/**
+ * Class CompareValidator
+ * @package common\components\validators
+ */
 class CompareValidator extends \yii\validators\CompareValidator
 {
 	/**
