@@ -11,10 +11,13 @@ use \yii\base\Model;
  */
 class LoginForm extends Model
 {
+	/** @var */
 	public $username;
+	/** @var */
 	public $password;
+	/** @var bool */
 	public $rememberMe = true;
-
+	/** @var bool */
 	private $_user = false;
 
 
@@ -24,12 +27,9 @@ class LoginForm extends Model
 	public function rules()
 	{
 		return [
-			// username and password are both required
-			[['username', 'password'], 'required'],
-			// rememberMe must be a boolean value
-			['rememberMe', 'boolean'],
-			// password is validated by validatePassword()
-			['password', 'validatePassword'],
+			[['username', 'password'], 'required'], // username and password are both required
+			['rememberMe', 'boolean'], // rememberMe must be a boolean value
+			['password', 'validatePassword'], // password is validated by validatePassword()
 		];
 	}
 
@@ -78,6 +78,9 @@ class LoginForm extends Model
 		return $this->_user;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function attributeLabels()
 	{
 		return [

@@ -10,6 +10,7 @@ use backend\modules\user\Module;
  */
 class PasswordResetRequestForm extends Model
 {
+	/** @var */
 	public $email;
 
 	/**
@@ -18,8 +19,6 @@ class PasswordResetRequestForm extends Model
 	public function rules()
 	{
 		return [
-//			['email', 'filter', 'filter' => 'trim'],
-//			['email', 'required'],
 			['email', 'email'],
 			['email', 'exist',
 				'targetClass' => '\common\models\User',
@@ -58,13 +57,12 @@ class PasswordResetRequestForm extends Model
 			}
 
 			if ($user->save()) {
-				return \Yii::$app->mailer->compose('@backend/modules/user/views/mail/reset',['user'=>$user])
+				return \Yii::$app->mailer->compose('@backend/modules/user/views/mail/reset', ['user' => $user])
 					->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name])
 					->setTo($this->email)
 					->setSubject(Module::t('reset', 'Password reset for {name}', ['name' => \Yii::$app->name]))
 					->send();
 			}
-			return;
 		}
 
 		return false;

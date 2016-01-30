@@ -47,8 +47,6 @@ class UserSearch extends User
 			'query' => $query,
 		]);
 
-//		$query->andWhere(['>', 'id', 1]); // We don't want to find our own account?
-
 		if (!($this->load($params) && $this->validate())) {
 			return $dataProvider;
 		}

@@ -9,6 +9,7 @@ use backend\components\web\Controller;
 
 class LogoutController extends Controller
 {
+	/** @var string  */
 	public $defaultAction = 'logout';
 
 	/**
@@ -36,6 +37,9 @@ class LogoutController extends Controller
 		]);
 	}
 
+	/**
+	 * @return \yii\web\Response
+	 */
 	public function actionLogout()
 	{
 		Yii::$app->user->logout();

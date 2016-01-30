@@ -20,6 +20,8 @@ $menuItems = [
 if (Yii::$app->user->isGuest) {
 	$menuItems[] = ['label' => Yii::t('menu', 'Login'), 'url' => ['/user/login']];
 } else {
+	$menuItems[] = ['label' => Yii::t('menu', 'Account'), 'url' => ['/user/account']];
+	$menuItems[] = ['label' => Yii::t('menu', 'Roles'), 'url' => ['/user/role']];
 	$menuItems[] = [
 		'label'       => Yii::t('menu', 'Logout ({username})', ['username' => Yii::$app->user->identity->username]),
 		'url'         => ['/user/logout'],

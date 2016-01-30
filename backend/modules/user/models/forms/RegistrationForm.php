@@ -71,6 +71,9 @@ class RegistrationForm extends Model
 			->send();
 	}
 
+	/**
+	 * @return array
+	 */
 	public function attributeLabels()
 	{
 		return [

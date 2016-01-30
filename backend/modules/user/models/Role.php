@@ -18,7 +18,19 @@ use yii\db\ActiveRecord;
  */
 class Role extends ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
+	public function behaviors()
+	{
+		return [
+			\yii\behaviors\TimestampBehavior::className(),
+		];
+	}
 
+	/**
+	 * @return string
+	 */
 	public function getId()
 	{
 		return $this->name;

@@ -12,13 +12,11 @@ use Yii;
  */
 class ResetPasswordForm extends Model
 {
+	/** @var */
 	public $password;
 
-	/**
-	 * @var \common\models\User
-	 */
+	/** @var \common\models\User */
 	private $_user;
-
 
 	/**
 	 * Creates a form model given a token.
@@ -56,7 +54,7 @@ class ResetPasswordForm extends Model
 	public function attributeLabels()
 	{
 		return [
-			'password'        => Module::t('reset', 'Password'),
+			'password' => Module::t('reset', 'Password'),
 		];
 	}
 
