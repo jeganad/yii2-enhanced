@@ -24,7 +24,6 @@ if (Yii::$app->user->isGuest) {
 	$menuItems[] = ['label' => Yii::t('menu', 'Home'), 'url' => ['/site/index']];
 
 	if (Yii::$app->user->isAdmin()) {
-		$menuItems[] = ['label' => Yii::t('menu', 'Page'), 'url' => ['/page']];
 		$menuItems[] = ['label' => Yii::t('menu', 'Account'), 'url' => ['/user/account']];
 		$menuItems[] = ['label' => Yii::t('menu', 'Roles'), 'url' => ['/user/role']];
 	}
