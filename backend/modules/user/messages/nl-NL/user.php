@@ -9,6 +9,7 @@ return [
 	'Users'                                                       => 'Gebruikers',
 
 	/** Attributes */
+	'ID'                                                          => 'ID',
 	'Email'                                                       => 'E-mail',
 	'Username'                                                    => 'Gebruikersnaam',
 	'Password'                                                    => 'Wachtwoord',

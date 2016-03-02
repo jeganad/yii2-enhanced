@@ -1,10 +1,8 @@
 <?php
 
 use backend\modules\user\Module;
-use common\models\User;
-use yii\helpers\ArrayHelper;
-use yii\helpers\Html;
 use common\components\grid\GridView;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\modules\user\models\search\UserSearch */

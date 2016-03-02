@@ -74,7 +74,7 @@ class User extends \common\models\User
 	public function attributeLabels()
 	{
 		return [
-			'id'              => Module::t('common', 'ID'),
+			'id'              => Module::t('user', 'ID'),
 			'username'        => Module::t('user', 'Username'),
 			'email'           => Module::t('user', 'E-mail'),
 			'password'        => Module::t('user', 'Password'),
