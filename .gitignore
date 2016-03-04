@@ -28,3 +28,9 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+
+# Ignore the codeception support folders
+tests/codeception/backend/_support/
+tests/codeception/common/_support/
+tests/codeception/console/_support/
+tests/codeception/frontend/_support/
