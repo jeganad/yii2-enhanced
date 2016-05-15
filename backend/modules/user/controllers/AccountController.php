@@ -62,6 +62,7 @@ class AccountController extends Controller
 		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 			// Set the password
 			$model->setPassword($model->enter_password);
+			$model->generateAuthKey();
 			$model->save();
 
 			return $this->redirect(['view', 'id' => $model->id]);
