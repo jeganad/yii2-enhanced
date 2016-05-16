@@ -17,17 +17,15 @@ class AccountCreatePage extends BasePage
 	 * @param string $email
 	 * @param string $enter_password
 	 * @param string $repeat_password
+	 * @param string $role
 	 */
-	public function create($username, $email, $enter_password, $repeat_password)
+	public function create($username, $email, $enter_password, $repeat_password, $role)
 	{
 		$this->actor->fillField('input[name="User[username]"]', $username);
 		$this->actor->fillField('input[name="User[email]"]', $email);
 		$this->actor->fillField('input[name="User[enter_password]"]', $enter_password);
 		$this->actor->fillField('input[name="User[repeat_password]"]', $repeat_password);
-
-//		$this->actor->checkOption('input[name="User[roles][]"] input[value="admin"]');
-//		$this->actor->checkOption('input[value="admin"]');
-		$this->actor->checkOption('input[name="User[roles][]"]', 'admin');
+		$this->actor->checkOption('input[name="User[roles][]"]', $role);
 
 		$this->actor->click('account-button');
 	}
