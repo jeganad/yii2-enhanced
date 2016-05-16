@@ -75,7 +75,7 @@ class FixtureHelper extends Module
 			],
 			'authAssignment' => [
 				'class'    => AuthAssignmentFixture::className(),
-				'dataFile' => '@tests/codeception/common/fixtures/data/auth_Assignment.php',
+				'dataFile' => '@tests/codeception/common/fixtures/data/auth_assignment.php',
 			],
 		];
 	}
