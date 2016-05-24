@@ -14,10 +14,10 @@ return [
 		'formatter'   => [
 			'nullDisplay'    => '',
 			'currencyCode'   => 'EUR',
-			'dateFormat'     => 'php: d-m-yy',
-			'datetimeFormat' => 'php: d-m-yy H:i:s',
+			'dateFormat'     => 'php:d-m-yy',
+			'datetimeFormat' => 'php:d-m-yy H:i:s',
 			'timeFormat'     => 'H:mm:ss',
-			'booleanFormat'  => ['Nee', 'Ja'],
+			// 'booleanFormat'  => ['Nee', 'Ja'],
 		],
 		'i18n'        => [
 			'translations' => [
